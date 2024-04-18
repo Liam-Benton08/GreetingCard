@@ -19,7 +19,18 @@ namespace GreetingCard
 
         private void Form1_Shown(object sender, EventArgs e)
         {
+            Graphics g = this.CreateGraphics();
 
+            g.Clear(Color.LavenderBlush);
+
+            SolidBrush pinkBrush = new SolidBrush(Color.Pink);
+            Pen whitePen = new Pen(Color.White);
+            
+           
+            //Pen whitePen = new Pen(Color.White, 5);
+            //SolidBrush whiteBrush = new SolidBrush(Color.White);
+            //SolidBrush greenBrush = new SolidBrush(Color.Green);
+            //Font drawFont = new Font("Arial", 25, FontStyle.Bold);
         }
     }
 }
