@@ -84,13 +84,14 @@ namespace GreetingCard
             SolidBrush pinkBrush = new SolidBrush(Color.Pink);
             Pen pinkPen = new Pen(Color.Pink, 7);
             SolidBrush whiteBrush = new SolidBrush(Color.White);
-            Pen whitePen = new Pen(Color.White, 7);
+            Pen whitePen = new Pen(Color.White, 3);
             SolidBrush redBrush = new SolidBrush(Color.Tomato);
             Pen redPen = new Pen(Color.Tomato, 7);
-            Pen blackPen = new Pen(Color.Black, 2);
+            Pen blackPen = new Pen(Color.Black, 3);
             Pen blackPen2 = new Pen(Color.Black, 5);
             SolidBrush blackBrush = new SolidBrush(Color.Black);
             SolidBrush yellowBrush = new SolidBrush(Color.Yellow);
+            Pen brownPen = new Pen(Color.SaddleBrown, 8);
             Font drawFont = new Font("Arial", 30, FontStyle.Bold);
             Font bigFont = new Font("Arial", 60, FontStyle.Bold);
 
@@ -134,7 +135,7 @@ namespace GreetingCard
                 g.DrawString("I had to ask cupid for a map...           Because I just keep getting lost in your eyes.", bigFont, whiteBrush, backWord, 160);
 
                 Thread.Sleep(10);
-                g.Clear(Color.Purple);
+                g.Clear(Color.Red);
 
                 backWord = backWord - 11;
 
@@ -145,11 +146,24 @@ namespace GreetingCard
 
             while (time >= 0)
             {
+                g.Clear(Color.Pink);
+                g.DrawPie(blackPen2, 290, 191, 60, 60, 150, 70);
+                g.FillPie(whiteBrush, 290, 191, 60, 60, 150, 70);
+                g.FillRectangle(pinkBrush, 250, 200, 50, 50);
+                g.DrawEllipse(brownPen, 25, 78, 240, 300);
+                g.FillRectangle(pinkBrush, 0, 0, 150, 500);
+                g.DrawLine(whitePen, 157, 83, 157, 375);
+                g.DrawLine(blackPen, 300, 201, 300, 236);
                 g.DrawEllipse(blackPen2, 500, 155, 130, 130);
                 g.FillEllipse(yellowBrush, 500, 155, 130, 130);
                 g.FillEllipse(blackBrush, 520, 185, 35, 35);
                 g.FillEllipse(blackBrush, 575, 185, 35, 35);
-                g.DrawLine(blackPen2, 220, 220, 300, 220);
+                g.DrawArc(blackPen2, 520, 210, 100, 50, 50, 100);
+                g.DrawLine(blackPen, 160, 220, 300, 220);
+                g.DrawLine(blackPen, 160, 220, 155, 215);
+                g.DrawLine(blackPen, 160, 220, 155, 225);
+                
+
 
                 time--;
             }
