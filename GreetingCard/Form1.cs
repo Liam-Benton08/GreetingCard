@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace GreetingCard
 {
@@ -16,7 +17,11 @@ namespace GreetingCard
 
         Graphics g;
         Graphics g2;
-        Bitmap bmp; 
+        Bitmap bmp;
+
+        SoundPlayer ballonPop = new SoundPlayer(Properties.Resources.Balloon_Popping);
+        SoundPlayer awkward = new SoundPlayer(Properties.Resources.Awkward);
+        SoundPlayer clapping = new SoundPlayer(Properties.Resources.Applause);
 
         public Form1()
         {
@@ -65,7 +70,7 @@ namespace GreetingCard
             g2.DrawImage(bmp, 0, 0);
         }
 
-        private void Form1_Click(object sender, EventArgs e)
+        private async void Form1_Click(object sender, EventArgs e)
         {
             int time = 150;
 
@@ -137,6 +142,8 @@ namespace GreetingCard
                 time--;
             }
 
+            ballonPop.Play();
+
             //reset time and state another int
             time = 350;
             int backWord = 700;
@@ -155,7 +162,10 @@ namespace GreetingCard
                 backWord = backWord - 11;
 
                 time--;
+                
             }
+
+            awkward.Play();
 
             //states time
             time = 10;
@@ -200,6 +210,8 @@ namespace GreetingCard
                 g2.DrawImage(bmp, 0, 0);
                 Thread.Sleep(30);
             }
+
+                clapping.Play();
 
                 g.Clear(Color.Tomato);
 
